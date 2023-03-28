@@ -38,8 +38,24 @@ def generate_launch_description():
         output='screen'
     )
 
+    diff_drive_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['diff_cont'],
+        output='screen'
+    )
+
+    joint_broad_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_broad'],
+        output='screen'
+    )
+
     return LaunchDescription([
         rsp,
         gazebo,
-        spawn_entity
+        spawn_entity,
+        diff_drive_spawner,
+        joint_broad_spawner
     ])
